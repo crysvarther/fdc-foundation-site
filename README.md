@@ -1,90 +1,86 @@
-# Friend de Coup Foundation — Website
+# FDC Foundation — Website
 
-A donor-recruitment website for the **Friend de Coup (FDC) Foundation**, supporting
-Mitchell High School's award-winning show choir in Mitchell, South Dakota.
+A donor-recruitment website for the **FDC Foundation** (Friend de Coup Foundation),
+supporting the students of Mitchell High School's Friend de Coup show choir in Mitchell, South Dakota.
 
-It's a fast, dependency-free **static site** (plain HTML/CSS/JS) — it works by opening
-the files directly and can be hosted anywhere (GitHub Pages, Netlify, Vercel, or any web host).
+**Building confidence. Creating leaders. Leaving a legacy.**
+
+It's a fast, dependency-free **static site** (plain HTML/CSS/JS) — it works by opening the
+files directly and can be hosted anywhere (GitHub Pages, Netlify, Vercel, or any web host).
 
 ## Pages
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Main landing page: hero, mission, impact, legacy/story, giving levels, ways to give, FAQ, contact |
+| `index.html` | Landing page: hero, mission, the three Opportunities, impact, legacy/story, photo gallery, giving levels, ways to give, FAQ, contact |
 | `donate.html` | Focused donation page with amount selector and impact breakdown |
-| `assets/styles.css` | All styling (design system, responsive, animations) |
+| `assets/styles.css` | All styling (purple/black/cyan brand system, responsive, animations) |
 | `assets/script.js` | Interactions: nav, scroll reveal, count-up stats, FAQ, donate selectors |
 | `assets/crest.svg` | Logo / favicon (FDC shield crest) |
+| `assets/img/` | Optimized performance photos (Photography by Wilson, South Titan Classic 2026) |
+
+## Real info already baked in
+- Mission, tagline, and the three Opportunities (Founding Donor / Sponsor a Student / Support the Program)
+- Contact: phone **605-350-5866 (Darren)** & **605-770-0844 (Chris)**, email **fdcfoundation@gmail.com**, **Mitchell, SD**, website **fdcfoundation.org**
+- Tax line: donations are tax-deductible through the partnership with the **Mitchell Music Boosters**, a registered **501(c)(3)** nonprofit
+- 9 real performance photos throughout
 
 ## View it locally
-
-Just double-click `index.html`, **or** run a tiny local server from this folder:
-
+Double-click `index.html`, **or** run the bundled local server from this folder:
 ```powershell
-# Python (if installed)
-python -m http.server 8000
-# then open http://localhost:8000
+powershell -ExecutionPolicy Bypass -File .claude/serve.ps1 -Port 8123
+# then open http://localhost:8123
 ```
 
 ---
 
-## ✅ Before you launch — things to replace
+## ✅ The one thing left before launch: the donation link
 
-Search the files for these placeholders and swap in your real details. Anything
-marked in **red** on the site (the `.todo` styling) is a placeholder.
-
-### 1. Donation link  (most important)
 The Donate buttons currently show a reminder popup. Connect them to your real provider:
 
-- In **`donate.html`**, find the button with `href="#donate-placeholder"` and change it to
-  your live URL, e.g. a **GoFundMe / Givebutter / PayPal / Stripe / school portal** link:
+- In **`donate.html`**, find the button with `href="#donate-placeholder"` and change it to your
+  live URL (e.g. **Givebutter / GoFundMe / PayPal / Stripe** or a **Mitchell Music Boosters** giving page):
   ```html
   <a href="https://YOUR-DONATION-LINK" class="btn btn--gold btn--block btn--lg">Continue to Secure Checkout</a>
   ```
-- The `data-donate` attribute and the placeholder handler in `assets/script.js` can then be removed.
-- The "Donate" buttons in `index.html` already point to `donate.html`, so they'll flow through automatically.
+- Then remove the `data-donate` attribute and the placeholder handler in `assets/script.js`.
+- The Donate buttons in `index.html` already point to `donate.html`, so they flow through automatically.
 
-> A static site can't process payments by itself — it needs a payment provider. The
-> easiest path for a school group is a hosted page (Givebutter and GoFundMe are free to start).
+> A static site can't process payments by itself — it needs a payment provider. The easiest path for a
+> school group is a hosted page (Givebutter and GoFundMe are free to start). Because giving runs through the
+> Mitchell Music Boosters 501(c)(3), confirm the receipt/acknowledgment flow with them.
 
-### 2. Contact details
-In **`index.html`** (the `#contact` section and footer) and **`donate.html`** footer, replace:
-- Email: `info@frienddecoupfoundation.org`
-- Phone: `(605) 000-0000`
-- Mailing address: `Mitchell, SD 57301`
-- Social links (Instagram is set to `@mitchellfrienddecoup` — update Facebook/YouTube if needed)
-
-### 3. Contact form
-The form in `index.html` is a demo (shows a thank-you popup). To collect real messages, point it at
-a free form service like **Formspree** or **Netlify Forms**:
-```html
-<form class="form" id="give-form" action="https://formspree.io/f/YOUR_ID" method="POST">
-```
-and remove the `e.preventDefault()` demo handler in `assets/script.js`.
-
-### 4. Tax / legal details
-The FAQ and donate page reference **501(c)(3) status and EIN** as "to be confirmed."
-Once verified, update those lines so donors know gifts are tax-deductible, and add your EIN.
-
-### 5. Numbers & goals (optional)
-Sample figures you may want to make exact:
-- Hero fundraising goal (`$34,000 / $50,000` and the `data-fill="68"` progress bar in `index.html`)
-- Stat bar (`41` seasons, `2000+` alumni, `50+` performers) — edit the `data-count` values
-- Giving level amounts in the `#tiers` section and on `donate.html`
-
-### 6. Photos (recommended)
-The site uses an elegant text-and-color design with no photos yet. Adding real performance
-photos will make it far more compelling. Drop images in `assets/` and place them in the hero,
-legacy, and impact sections. (Your `FDC foundation v2.pdf` likely has usable imagery.)
+### Optional polish
+- **Contact form** (`index.html`) is a demo (shows a popup). To collect real messages, point it at a free
+  service like **Formspree**: `<form ... action="https://formspree.io/f/YOUR_ID" method="POST">` and remove
+  the `e.preventDefault()` demo handler in `assets/script.js`.
+- **Numbers** you may want to make exact: stat bar (`40+` years, `50+` students) and the giving-tier amounts.
+- **More / different photos:** see below.
 
 ---
 
-## Content sources
-Program facts (41st season, the meaning of "Friend de Coup" / Jason Kaemingk tribute, Mitchell
-Area Performing Arts Center, Grand Champion tradition) are drawn from public reporting by the
-*Mitchell Republic* and the program's public profiles. Verify specifics before printing.
+## Working with photos
+
+Source photos live in your Dropbox (`Photography by Wilson / South Titan Classic 2026 / Mitchell HS Friend de Coup`)
+and are **not** in this repo. The 9 web images in `assets/img/` were resized/compressed from the originals.
+
+To regenerate or add more, use the bundled resizer (uses built-in Windows .NET — no extra software):
+```powershell
+# Resize every image in a source folder into a destination folder, max 1700px wide, quality 82
+powershell -ExecutionPolicy Bypass -File .claude/resize.ps1 `
+  -Src "C:\path\to\source\photos" -Dst ".\assets\img" -MaxW 1700 -Quality 82
+```
+Then reference the new file in `index.html` / `donate.html`. Current images: `hero-soloist`, `energy`,
+`ensemble`, `ensemble-purple`, `duo`, `solo-action`, `portrait-1/2/3` (all `.jpg`).
+
+---
 
 ## Hosting in 2 minutes (GitHub Pages)
 1. Push this folder to a GitHub repo.
 2. Repo **Settings → Pages → Build from branch → `main` / root**.
-3. Your site goes live at `https://<username>.github.io/<repo>/`.
+3. Your site goes live at `https://<username>.github.io/<repo>/` (or point `fdcfoundation.org` at it).
+
+## Content sources
+Program facts (the "Friend de Coup" / Jason Kaemingk tribute, 40+ year history, Mitchell Area Performing
+Arts Center, Grand Champion tradition) are drawn from public reporting by the *Mitchell Republic*. Mission,
+contact, tax, and Opportunities come from the FDC Foundation Committee's own brochure.
