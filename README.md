@@ -21,7 +21,7 @@ files directly and can be hosted anywhere (GitHub Pages, Netlify, Vercel, or any
 
 ## Real info already baked in
 - Mission, tagline, and the three Opportunities (Founding Donor / Sponsor a Student / Support the Program)
-- Contact: phone **605-350-5866 (Darren)** & **605-770-0844 (Chris)**, email **fdcfoundation@gmail.com**, **Mitchell, SD**, website **fdcfoundation.org**
+- Contact: phone **605-350-5866 (Darren)** & **605-770-0844 (Chris)**, email **info@fdc-foundation.org**, **Mitchell, SD**, website **www.fdc-foundation.org**
 - Tax line: donations are tax-deductible through the partnership with the **Mitchell Music Boosters**, a registered **501(c)(3)** nonprofit
 - 9 real performance photos throughout
 
@@ -78,7 +78,7 @@ Then reference the new file in `index.html` / `donate.html`. Current images: `he
 ## Hosting in 2 minutes (GitHub Pages)
 1. Push this folder to a GitHub repo.
 2. Repo **Settings → Pages → Build from branch → `main` / root**.
-3. Your site goes live at `https://<username>.github.io/<repo>/` (or point `fdcfoundation.org` at it).
+3. Your site goes live at `https://<username>.github.io/<repo>/` (or point `fdc-foundation.org` at it).
 
 ## Content sources
 Program facts (the "Friend de Coup" / Jason Kaemingk tribute, 40+ year history, Mitchell Area Performing
