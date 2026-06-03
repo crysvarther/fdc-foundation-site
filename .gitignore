@@ -1,0 +1,13 @@
+# OS / editor cruft
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*~
+
+# Working extraction artifacts
+fdc.txt
+
+# Large source material (keep out of the web repo; restore if you want it tracked)
+# Comment the next line if you want the source PDF committed.
+FDC foundation v2.pdf

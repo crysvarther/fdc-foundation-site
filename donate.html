@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate — Friend de Coup Foundation</title>
+  <meta name="description" content="Make a gift to the Friend de Coup Foundation and support Mitchell High School's show choir. Choose one-time or monthly giving in any amount." />
+  <link rel="icon" href="assets/crest.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header solid">
+    <div class="wrap nav">
+      <a href="index.html" class="brand" aria-label="Friend de Coup Foundation home">
+        <img src="assets/crest.svg" alt="" class="brand__crest" />
+        <span class="brand__name">Friend de Coup<span>Foundation</span></span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links">
+          <li><a href="index.html#mission">Mission</a></li>
+          <li><a href="index.html#impact">Your Impact</a></li>
+          <li><a href="index.html#legacy">Legacy</a></li>
+          <li><a href="index.html#give">Ways to Give</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="nav__cta">
+        <a href="index.html#contact" class="btn btn--ghost">Contact</a>
+        <a href="donate.html" class="btn btn--gold">Donate</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html#mission">Mission</a></li>
+        <li><a href="index.html#impact">Your Impact</a></li>
+        <li><a href="index.html#legacy">Legacy</a></li>
+        <li><a href="index.html#give">Ways to Give</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================== DONATE HERO ===================== -->
+  <section class="hero donate-hero">
+    <div class="hero__spotlight"></div>
+    <div class="wrap">
+      <div class="center" style="max-width:720px;margin:0 auto;">
+        <span class="hero__tag" style="margin-left:auto;margin-right:auto;"><span class="dot"></span> Every gift goes to the students</span>
+        <h1>Your gift, center <span class="gold">stage</span>.</h1>
+        <p class="hero__sub" style="margin-left:auto;margin-right:auto;">
+          Choose an amount below. One-time or monthly, every dollar funds travel, costumes,
+          access, and the future of Friend de Coup.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DONATE FORM ===================== -->
+  <section class="section section--cream">
+    <div class="wrap">
+      <div class="split" style="align-items:start;">
+        <!-- Left: the giving card -->
+        <div class="form reveal" style="position:sticky;top:96px;">
+          <div class="freq-toggle" role="group" aria-label="Giving frequency">
+            <button type="button" class="active">One-time</button>
+            <button type="button">Monthly</button>
+          </div>
+
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:10px;color:var(--navy-800);">Choose an amount</label>
+          <div class="amount-grid">
+            <button type="button" data-amount="50">$50</button>
+            <button type="button" data-amount="100">$100</button>
+            <button type="button" data-amount="250" class="active">$250</button>
+            <button type="button" data-amount="500">$500</button>
+            <button type="button" data-amount="1000">$1,000</button>
+            <button type="button" data-amount="2500">$2,500</button>
+            <button type="button" data-amount="5000">$5,000</button>
+            <button type="button" data-amount="10000">$10,000</button>
+          </div>
+          <div class="field" style="margin-top:14px;">
+            <label for="custom-amount">Or enter a custom amount</label>
+            <input type="number" id="custom-amount" min="1" step="1" value="250" placeholder="$" />
+          </div>
+
+          <a href="#donate-placeholder" data-donate class="btn btn--gold btn--block btn--lg" style="margin-top:8px;">
+            Continue to Secure Checkout
+          </a>
+
+          <div class="note-box" style="margin-top:20px;">
+            <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span><strong>Setup needed:</strong> connect this button to your live donation provider
+            (GoFundMe, Givebutter, PayPal, Stripe, or the school's portal). Until then it shows a reminder. See <code>README.md</code>.</span>
+          </div>
+        </div>
+
+        <!-- Right: reassurance / impact -->
+        <div class="reveal" data-delay="1">
+          <span class="eyebrow">What your gift does</span>
+          <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.5rem);">Real impact, by the dollar.</h2>
+
+          <ul class="contact-list" style="margin-top:10px;">
+            <li>
+              <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 11l4-7 4 7M3 11h12M9 11v10"/></svg></span>
+              <div><h4>$50 &mdash; Friend</h4><p>Helps outfit a performer with show-ready essentials.</p></div>
+            </li>
+            <li>
+              <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg></span>
+              <div><h4>$250 &mdash; Spotlight</h4><p>Covers a student's travel for a competition weekend.</p></div>
+            </li>
+            <li>
+              <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l3 6-3 3 3 11M18 2l-3 6 3 3-3 11"/></svg></span>
+              <div><h4>$1,000 &mdash; Legacy</h4><p>Underwrites costumes and production for a number.</p></div>
+            </li>
+            <li>
+              <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13"/></svg></span>
+              <div><h4>$5,000+ &mdash; Benefactor</h4><p>Seeds the endowment that sustains the program for years.</p></div>
+            </li>
+          </ul>
+
+          <div class="panel-card" style="margin-top:30px;">
+            <h3 style="color:var(--gold-400);">Other ways to give</h3>
+            <p style="color:rgba(255,255,255,0.82);">Prefer to give by check, set up a corporate sponsorship, or discuss a planned gift?</p>
+            <ul>
+              <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Mail a check (address on the contact page)</li>
+              <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Ask your employer about gift matching</li>
+              <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Sponsor a show or the full season</li>
+            </ul>
+            <a href="index.html#contact" class="btn btn--gold" style="margin-top:18px;">Contact the Foundation</a>
+          </div>
+
+          <p style="font-size:0.88rem;color:var(--ink-soft);margin-top:22px;">
+            The Friend de Coup Foundation supports Mitchell High School's show choir program.
+            <span class="todo">Tax-deductibility &amp; EIN to be confirmed before launch.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <img src="assets/crest.svg" alt="" class="brand__crest" />
+            <span class="brand__name">Friend de Coup<span>Foundation</span></span>
+          </a>
+          <p>Supporting Mitchell High School's award-winning show choir — on every stage, for every student, for the next 40 years.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/mitchellfrienddecoup/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html#mission">Mission</a></li>
+            <li><a href="index.html#impact">Your Impact</a></li>
+            <li><a href="index.html#legacy">Legacy</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Give</h5>
+          <ul>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="index.html#tiers">Giving Levels</a></li>
+            <li><a href="index.html#give">Ways to Give</a></li>
+            <li><a href="index.html#contact">Sponsorship</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:info@frienddecoupfoundation.org">Email us</a></li>
+            <li><a href="https://www.instagram.com/mitchellfrienddecoup/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="index.html#contact">Send a message</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year">2026</span> Friend de Coup Foundation. Mitchell, South Dakota.</span>
+        <span>Built to keep the spotlight on.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
