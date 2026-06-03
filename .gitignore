@@ -11,3 +11,6 @@ fdc.txt
 # Large source material (keep out of the web repo; restore if you want it tracked)
 # Comment the next line if you want the source PDF committed.
 FDC foundation v2.pdf
+
+# Local preview server + Claude tooling
+.claude/

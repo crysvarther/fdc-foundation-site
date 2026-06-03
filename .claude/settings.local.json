@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python -c \"import pypdf; r=pypdf.PdfReader\\('FDC foundation v2.pdf'\\); print\\('pages',len\\(r.pages\\)\\)\")"
-    ]
-  }
-}
