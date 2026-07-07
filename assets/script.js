@@ -2,6 +2,16 @@
 (function () {
   "use strict";
 
+  /* ============================================================
+     GO LIVE: paste your donation page URL below (in the quotes).
+     e.g. "https://givebutter.com/fdc"  or a GoFundMe / PayPal link.
+     Leave it "" to keep the "not connected yet" reminder.
+     The chosen amount & frequency are appended automatically when
+     your provider supports ?amount= and ?frequency= parameters.
+     ============================================================ */
+  const DONATE_URL = "";
+  const DONATE_PASS_AMOUNT = true; // set false if your provider ignores/errors on ?amount=
+
   /* ---- Sticky header shade ---- */
   const header = document.querySelector(".site-header");
   const onScroll = () => {
@@ -132,16 +142,36 @@
     });
   });
 
-  /* ---- Placeholder donate / form handlers ---- */
+  /* ---- Donate button: route to the live provider (or show reminder) ---- */
+  const getSelectedAmount = () => {
+    const custom = document.getElementById("custom-amount");
+    if (custom && custom.value) return parseInt(custom.value, 10) || null;
+    const active = document.querySelector(".amount-grid button.active");
+    return active ? parseInt(active.getAttribute("data-amount"), 10) : null;
+  };
+  const getFrequency = () => {
+    const active = document.querySelector(".freq-toggle button.active");
+    return active && /month/i.test(active.textContent) ? "monthly" : "once";
+  };
   document.querySelectorAll("[data-donate]").forEach((el) => {
     el.addEventListener("click", (e) => {
-      // TODO: replace this handler with your real donation URL / provider.
-      if (el.getAttribute("href") === "#donate-placeholder") {
+      if (!DONATE_URL) {
         e.preventDefault();
         alert(
-          "Donation processing isn't connected yet.\n\nReplace the placeholder link with your GoFundMe, Givebutter, PayPal, or school donation portal URL. See README.md for instructions."
+          "Donation processing isn't connected yet.\n\nOpen assets/script.js and set DONATE_URL to your Givebutter, GoFundMe, PayPal, or Mitchell Music Boosters page. See README.md."
         );
+        return;
       }
+      e.preventDefault();
+      let url = DONATE_URL;
+      if (DONATE_PASS_AMOUNT) {
+        const amt = getSelectedAmount();
+        const params = new URLSearchParams();
+        if (amt) params.set("amount", amt);
+        params.set("frequency", getFrequency());
+        url += (url.includes("?") ? "&" : "?") + params.toString();
+      }
+      window.open(url, "_blank", "noopener");
     });
   });
 

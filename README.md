@@ -38,17 +38,22 @@ powershell -ExecutionPolicy Bypass -File .claude/serve.ps1 -Port 8123
 
 The Donate buttons currently show a reminder popup. Connect them to your real provider:
 
-- In **`donate.html`**, find the button with `href="#donate-placeholder"` and change it to your
-  live URL (e.g. **Givebutter / GoFundMe / PayPal / Stripe** or a **Mitchell Music Boosters** giving page):
-  ```html
-  <a href="https://YOUR-DONATION-LINK" class="btn btn--gold btn--block btn--lg">Continue to Secure Checkout</a>
-  ```
-- Then remove the `data-donate` attribute and the placeholder handler in `assets/script.js`.
-- The Donate buttons in `index.html` already point to `donate.html`, so they flow through automatically.
+**It's now a one-line change.** Open **`assets/script.js`**, find the line near the top:
+```js
+const DONATE_URL = "";
+```
+and paste your live donation page URL between the quotes, e.g.:
+```js
+const DONATE_URL = "https://givebutter.com/your-fdc-page";
+```
+That's it — every "Donate" and "Continue to Secure Checkout" button now opens your provider, and the
+donor's selected amount + frequency are passed along automatically (as `?amount=` and `?frequency=`)
+when the provider supports them. Until you set it, the buttons show a friendly "not connected yet" reminder.
 
 > A static site can't process payments by itself — it needs a payment provider. The easiest path for a
-> school group is a hosted page (Givebutter and GoFundMe are free to start). Because giving runs through the
-> Mitchell Music Boosters 501(c)(3), confirm the receipt/acknowledgment flow with them.
+> school group is a hosted page (**Givebutter** and **GoFundMe** are free to start). Because giving runs
+> through the Mitchell Music Boosters 501(c)(3), confirm the receipt/acknowledgment flow with them.
+> If your provider errors on the `?amount=` parameter, set `DONATE_PASS_AMOUNT = false` right below `DONATE_URL`.
 
 ### Optional polish
 - **Contact form** (`index.html`) is a demo (shows a popup). To collect real messages, point it at a free
@@ -76,10 +81,34 @@ Then reference the new file in `index.html` / `donate.html`. Current images (all
 
 ---
 
-## Hosting in 2 minutes (GitHub Pages)
-1. Push this folder to a GitHub repo.
-2. Repo **Settings → Pages → Build from branch → `main` / root**.
-3. Your site goes live at `https://<username>.github.io/<repo>/` (or point `fdc-foundation.org` at it).
+## Hosting on GitHub Pages (free)
+
+This repo is already prepared for GitHub Pages (relative paths + a `.nojekyll` file so nothing is skipped).
+
+**One-time setup:**
+1. Create a free account at [github.com](https://github.com) if you don't have one.
+2. Create a new **empty** repository (e.g. `fdc-foundation-site`) — don't add a README/gitignore, this repo has them.
+3. In this folder, connect it and push (replace `USERNAME`/`REPO`):
+   ```bash
+   git branch -M main
+   git remote add origin https://github.com/USERNAME/REPO.git
+   git push -u origin main
+   ```
+   (GitHub will prompt you to sign in the first time — use a browser or a Personal Access Token.)
+4. On GitHub: **Settings → Pages → Build and deployment → Source: "Deploy from a branch" → Branch: `main` / `/ (root)` → Save.**
+5. Wait ~1 minute. Your site is live at **`https://USERNAME.github.io/REPO/`**.
+
+**Updating the live site later:** make your edits, then:
+```bash
+git add -A && git commit -m "Update site" && git push
+```
+Pages redeploys automatically within a minute.
+
+**Custom domain (`www.fdc-foundation.org`):** in **Settings → Pages → Custom domain**, enter your domain,
+then add the DNS records GitHub shows you at your domain registrar. GitHub will provision HTTPS for free.
+
+> Prefer drag-and-drop? [Netlify](https://app.netlify.com/drop) lets you drag this folder onto the page and
+> get an instant live URL — no git required. Same files work on either host.
 
 ## Content sources
 Program facts (the "Friend de Coup" / Jason Kaemingk tribute, 40+ year history, Mitchell Area Performing
