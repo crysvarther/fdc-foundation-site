@@ -193,7 +193,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .pillar p { color: var(--muted); font-size: 0.97rem; margin: 0; }
 
 /* ---------- Stats ---------- */
-.stats-band { background: linear-gradient(180deg, var(--bg-2), var(--bg)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stats-band { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--bg-2), var(--bg)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stats-band .wrap { position: relative; z-index: 1; }
+.stats-band .dancers-wm { width: 108%; left: -4%; bottom: -8%; opacity: 0.045; }
+.cta .dancers-wm { width: min(920px, 92%); left: 50%; transform: translateX(-50%); top: 50%; margin-top: -8%; opacity: 0.07; }
+.dancer-topper { padding-top: 8px; margin-bottom: 40px; }
+.dancer-topper .dancers { width: min(420px, 70%); opacity: 0.85; }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 64px 0; }
 .stat { text-align: center; position: relative; }
 .stat:not(:last-child)::after { content:""; position:absolute; right:-12px; top:14%; height:72%; width:1px; background: var(--line); }
@@ -325,6 +330,25 @@ ul { margin: 0; padding: 0; list-style: none; }
 .dollar-list .ic { width: 46px; height: 46px; border-radius: 12px; flex: none; display: grid; place-items: center; background: var(--grad-soft); border: 1px solid var(--line); color: var(--cyan); }
 .dollar-list h4 { margin: 0 0 2px; font-family: var(--font-body); font-weight: 700; font-size: 1rem; }
 .dollar-list p { margin: 0; color: var(--muted); font-size: 0.93rem; }
+
+/* ---------- Dancer silhouette motif (from the FDC Hall of Fame emblem) ---------- */
+.dancers {
+  aspect-ratio: 1400 / 481;
+  -webkit-mask: url('img/dancers.png') center/contain no-repeat;
+  mask: url('img/dancers.png') center/contain no-repeat;
+  background: var(--grad);
+}
+/* Full-color gradient strip used as a section flourish */
+.dancer-strip { display: flex; justify-content: center; }
+.dancer-strip .dancers { width: min(720px, 86%); }
+/* Faint recurring watermark that sits behind content */
+.dancers-wm {
+  position: absolute; pointer-events: none; z-index: 0;
+  aspect-ratio: 1400 / 481;
+  -webkit-mask: url('img/dancers.png') center/contain no-repeat;
+  mask: url('img/dancers.png') center/contain no-repeat;
+  background: #fff; opacity: 0.05;
+}
 
 /* ---------- Reveal ---------- */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
