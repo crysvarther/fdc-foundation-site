@@ -1,5 +1,9 @@
 # FDC Foundation — Website
 
+> **🌐 Live:** https://crysvarther.github.io/fdc-foundation-site/ &nbsp;·&nbsp; Repo: `crysvarther/fdc-foundation-site` (GitHub Pages, `main` branch, root).
+> To update the live site: `git add -A && git commit -m "…" && git push` — it redeploys in ~1 minute.
+
+
 A donor-recruitment website for the **FDC Foundation** (Friend de Coup Foundation),
 supporting the students of Mitchell High School's Friend de Coup show choir in Mitchell, South Dakota.
 
