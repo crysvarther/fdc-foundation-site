@@ -70,8 +70,9 @@ To regenerate or add more, use the bundled resizer (uses built-in Windows .NET â
 powershell -ExecutionPolicy Bypass -File .claude/resize.ps1 `
   -Src "C:\path\to\source\photos" -Dst ".\assets\img" -MaxW 1700 -Quality 82
 ```
-Then reference the new file in `index.html` / `donate.html`. Current images: `hero-soloist`, `energy`,
-`ensemble`, `ensemble-purple`, `duo`, `solo-action`, `portrait-1/2/3` (all `.jpg`).
+Then reference the new file in `index.html` / `donate.html`. Current images (all `.jpg` in `assets/img/`):
+`hero-soloist`, `energy`, `energy-yellow`, `ensemble`, `ensemble-purple`, `duo`, `solo-action`, `ballad`,
+`portrait-1/2/3`, `gallery-4/5/6/7`, and `hall-of-fame` (the FDC Hall of Fame emblem).
 
 ---
 
