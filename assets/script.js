@@ -153,16 +153,48 @@
     const active = document.querySelector(".freq-toggle button.active");
     return active && /month/i.test(active.textContent) ? "monthly" : "once";
   };
+  /* Thank-you modal (shown while online giving isn't connected yet) */
+  const thanksModal = document.getElementById("thanks-modal");
+  const openThanks = () => {
+    if (!thanksModal) return;
+    const amtEl = document.getElementById("thanks-amount");
+    const amt = getSelectedAmount();
+    if (amtEl) {
+      if (amt) {
+        const freq = getFrequency() === "monthly" ? " / month" : "";
+        amtEl.innerHTML = "Your intended gift: <b>$" + amt.toLocaleString() + freq + "</b>";
+        amtEl.hidden = false;
+      } else {
+        amtEl.hidden = true;
+      }
+    }
+    thanksModal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    const closeBtn = thanksModal.querySelector(".modal__close");
+    if (closeBtn) closeBtn.focus();
+  };
+  const closeThanks = () => {
+    if (!thanksModal) return;
+    thanksModal.classList.remove("open");
+    document.body.style.overflow = "";
+  };
+  if (thanksModal) {
+    thanksModal.querySelectorAll("[data-close]").forEach((el) =>
+      el.addEventListener("click", closeThanks)
+    );
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && thanksModal.classList.contains("open")) closeThanks();
+    });
+  }
+
   document.querySelectorAll("[data-donate]").forEach((el) => {
     el.addEventListener("click", (e) => {
+      e.preventDefault();
       if (!DONATE_URL) {
-        e.preventDefault();
-        alert(
-          "Donation processing isn't connected yet.\n\nOpen assets/script.js and set DONATE_URL to your Givebutter, GoFundMe, PayPal, or Mitchell Music Boosters page. See README.md."
-        );
+        // Online giving not wired yet — thank them and point to Darren/Chris.
+        openThanks();
         return;
       }
-      e.preventDefault();
       let url = DONATE_URL;
       if (DONATE_PASS_AMOUNT) {
         const amt = getSelectedAmount();

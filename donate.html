@@ -91,7 +91,7 @@
           <a href="#donate-placeholder" data-donate class="btn btn--grad btn--block btn--lg" style="margin-top:8px;">Continue to Secure Checkout</a>
           <div class="note-box" style="margin-top:20px;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            <span><strong style="color:var(--text);">Setup needed:</strong> connect this button to your live donation provider (Givebutter, GoFundMe, PayPal, Stripe, or the Mitchell Music Boosters portal). Until then it shows a reminder. See <code>README.md</code>.</span>
+            <span><strong style="color:var(--text);">Setup needed:</strong> connect this button to your live donation provider (Givebutter, GoFundMe, PayPal, Stripe, or the Mitchell Music Boosters portal). Until then it shows a thank-you message with Darren &amp; Chris's contact info. See <code>README.md</code>.</span>
           </div>
         </div>
 
@@ -161,6 +161,39 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===================== THANK-YOU MODAL ===================== -->
+  <div class="modal" id="thanks-modal" role="dialog" aria-modal="true" aria-labelledby="thanks-title" aria-describedby="thanks-desc">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__card">
+      <button class="modal__close" data-close aria-label="Close">&times;</button>
+      <div class="modal__icon">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.65-9.5 9-9.5 9z"/></svg>
+      </div>
+      <h2>Thank you for supporting <span class="grad-text">FDC</span>!</h2>
+      <div class="modal__amount" id="thanks-amount" hidden></div>
+      <p id="thanks-desc">
+        Online giving isn't switched on just yet — but we'd love to make your gift happen right now.
+        Please reach out to <strong style="color:var(--text)">Darren</strong> or
+        <strong style="color:var(--text)">Chris</strong> and they'll take care of the rest.
+      </p>
+      <div class="modal__contacts">
+        <div class="modal__contact">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div><span class="who">Call or text · Darren</span><a href="tel:+16053505866">605-350-5866</a></div>
+        </div>
+        <div class="modal__contact">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div><span class="who">Call or text · Chris</span><a href="tel:+16057700844">605-770-0844</a></div>
+        </div>
+        <div class="modal__contact">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 7l8 6 8-6"/></svg></span>
+          <div><span class="who">Email the Foundation</span><a href="mailto:info@fdc-foundation.org?subject=I%27d%20like%20to%20support%20FDC">info@fdc-foundation.org</a></div>
+        </div>
+      </div>
+      <p class="modal__note">All gifts are tax-deductible through the Mitchell Music Boosters, a registered 501(c)(3) nonprofit.</p>
+    </div>
+  </div>
 
   <script src="assets/script.js"></script>
 </body>
