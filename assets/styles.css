@@ -237,7 +237,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- Opportunities ---------- */
 .opps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 50px; }
 .opp { position: relative; border-radius: var(--radius); overflow: hidden; min-height: 380px; display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; color: #fff; box-shadow: var(--shadow); isolation: isolate; border: 1px solid var(--line); }
-.opp::after { content:""; position:absolute; inset:0; z-index:-1; background: linear-gradient(180deg, rgba(10,7,19,0.1) 0%, rgba(10,7,19,0.35) 48%, rgba(10,7,19,0.94) 100%), var(--opp-img) center/cover no-repeat; transition: transform .6s var(--ease); }
+.opp::after { content:""; position:absolute; inset:0; z-index:-1; background: linear-gradient(180deg, rgba(10,7,19,0.1) 0%, rgba(10,7,19,0.35) 48%, rgba(10,7,19,0.94) 100%), var(--opp-img) var(--opp-pos, center)/cover no-repeat; transition: transform .6s var(--ease); }
 .opp:hover::after { transform: scale(1.06); }
 .opp__num { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 8px; }
 .opp h3 { font-size: 1.5rem; margin-bottom: 8px; }
