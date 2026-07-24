@@ -153,7 +153,32 @@
     const active = document.querySelector(".freq-toggle button.active");
     return active && /month/i.test(active.textContent) ? "monthly" : "once";
   };
-  /* Thank-you modal (shown while online giving isn't connected yet) */
+  /* ---- Generic modal helpers (used by donate + contact thank-you) ---- */
+  const openModal = (m) => {
+    if (!m) return;
+    m.classList.add("open");
+    document.body.style.overflow = "hidden";
+    const c = m.querySelector(".modal__close");
+    if (c) c.focus();
+  };
+  const closeModal = (m) => {
+    if (!m) return;
+    m.classList.remove("open");
+    document.body.style.overflow = "";
+  };
+  document.querySelectorAll(".modal").forEach((m) => {
+    m.querySelectorAll("[data-close]").forEach((el) =>
+      el.addEventListener("click", () => closeModal(m))
+    );
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const open = document.querySelector(".modal.open");
+      if (open) closeModal(open);
+    }
+  });
+
+  /* Donate thank-you modal (shown while online giving isn't connected yet) */
   const thanksModal = document.getElementById("thanks-modal");
   const openThanks = () => {
     if (!thanksModal) return;
@@ -168,24 +193,8 @@
         amtEl.hidden = true;
       }
     }
-    thanksModal.classList.add("open");
-    document.body.style.overflow = "hidden";
-    const closeBtn = thanksModal.querySelector(".modal__close");
-    if (closeBtn) closeBtn.focus();
+    openModal(thanksModal);
   };
-  const closeThanks = () => {
-    if (!thanksModal) return;
-    thanksModal.classList.remove("open");
-    document.body.style.overflow = "";
-  };
-  if (thanksModal) {
-    thanksModal.querySelectorAll("[data-close]").forEach((el) =>
-      el.addEventListener("click", closeThanks)
-    );
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && thanksModal.classList.contains("open")) closeThanks();
-    });
-  }
 
   document.querySelectorAll("[data-donate]").forEach((el) => {
     el.addEventListener("click", (e) => {
@@ -207,13 +216,37 @@
     });
   });
 
+  /* Contact form: thank the sender and open a pre-filled email to the Foundation */
   const giveForm = document.getElementById("give-form");
+  const contactModal = document.getElementById("contact-modal");
   if (giveForm) {
     giveForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      alert(
-        "Thank you! This is a demo form.\n\nConnect it to a payment provider (Givebutter, Stripe, PayPal) to accept live gifts. See README.md."
-      );
+      const val = (id) => (document.getElementById(id) || {}).value || "";
+      const name = val("name"), email = val("email"), topic = val("topic"), message = val("message");
+      if (contactModal) {
+        const nameSpan = contactModal.querySelector("[data-name]");
+        if (nameSpan) nameSpan.textContent = name ? ", " + name.trim().split(/\s+/)[0] : "";
+        const sendBtn = contactModal.querySelector("[data-send]");
+        if (sendBtn) {
+          const subject = "FDC Foundation — " + (topic || "Website message");
+          const body =
+            "Name: " + name + "\nEmail: " + email + "\nInterested in: " + topic + "\n\n" + message;
+          sendBtn.setAttribute(
+            "href",
+            "mailto:info@fdc-foundation.org?subject=" +
+              encodeURIComponent(subject) +
+              "&body=" +
+              encodeURIComponent(body)
+          );
+        }
+        openModal(contactModal);
+        giveForm.reset();
+      } else {
+        alert(
+          "Thanks for reaching out! Please email info@fdc-foundation.org or call Darren 605-350-5866 / Chris 605-770-0844."
+        );
+      }
     });
   }
 

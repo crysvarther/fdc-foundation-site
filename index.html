@@ -478,7 +478,7 @@
           </div>
           <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us how you'd like to help..."></textarea></div>
           <button type="submit" class="btn btn--grad btn--block btn--lg">Send Message</button>
-          <p style="font-size:0.8rem;color:var(--muted-2);margin:14px 0 0;text-align:center;">Demo form — connect to email or a form service before launch (see README).</p>
+          <p style="font-size:0.8rem;color:var(--muted-2);margin:14px 0 0;text-align:center;">Submitting opens a pre-filled email to the Foundation. To collect messages automatically, connect a form service (see README).</p>
         </form>
       </div>
     </div>
@@ -527,6 +527,34 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===================== CONTACT THANK-YOU MODAL ===================== -->
+  <div class="modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__card">
+      <button class="modal__close" data-close aria-label="Close">&times;</button>
+      <div class="modal__icon">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h2 id="contact-modal-title">Thanks for reaching out<span class="grad-text" data-name></span>!</h2>
+      <p>
+        We'd love to help. Tap below to send your message straight to the Foundation — it'll open in
+        your email app, ready to go. Prefer to talk? Darren and Chris are always happy to hear from you.
+      </p>
+      <a class="btn btn--grad btn--block btn--lg" data-send href="mailto:info@fdc-foundation.org" style="margin:22px 0 4px;">Send my message</a>
+      <div class="modal__contacts">
+        <div class="modal__contact">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div><span class="who">Call or text · Darren</span><a href="tel:+16053505866">605-350-5866</a></div>
+        </div>
+        <div class="modal__contact">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div><span class="who">Call or text · Chris</span><a href="tel:+16057700844">605-770-0844</a></div>
+        </div>
+      </div>
+      <p class="modal__note">We'll get back to you as soon as we can. Thank you for supporting FDC!</p>
+    </div>
+  </div>
 
   <script src="assets/script.js"></script>
 </body>
