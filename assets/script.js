@@ -250,6 +250,17 @@
     });
   }
 
+  /* ---- House lights (Hall of Fame wall page) ---- */
+  const lightsBtn = document.querySelector("[data-lights]");
+  if (lightsBtn) {
+    const label = lightsBtn.lastChild;
+    lightsBtn.addEventListener("click", () => {
+      const down = document.body.classList.toggle("lights-down");
+      lightsBtn.setAttribute("aria-pressed", String(down));
+      label.nodeValue = down ? " House lights up" : " House lights down";
+    });
+  }
+
   /* ---- Footer year ---- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
