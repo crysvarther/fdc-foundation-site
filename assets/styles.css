@@ -439,3 +439,39 @@ ul { margin: 0; padding: 0; list-style: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- Hall of Fame wall page ---------- */
+.hof-hero { padding: 70px 0 30px; }
+.lights-bar { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 30px; }
+.lights-hint { color: var(--muted-2); font-size: 0.86rem; }
+.lights-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px rgba(230,184,78,0.9); }
+body.lights-down .lights-dot { background: var(--cyan); box-shadow: 0 0 12px rgba(52,198,232,0.9); }
+
+.wall { display: grid; grid-template-columns: 1.5fr 1fr; gap: 36px; align-items: center; margin-top: 60px; }
+.wall__view { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: #100d16; }
+.wall__view svg { display: block; width: 100%; height: auto; }
+.wall--flip .wall__view { order: 2; }
+.wall__tag { display: block; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+.wall__copy h3 { font-size: 1.7rem; margin-bottom: 12px; }
+.wall__copy p { color: var(--muted); margin: 0; }
+.wall__facts { display: grid; gap: 10px; margin-top: 20px; }
+.wall__facts li { position: relative; padding-left: 26px; font-size: 0.95rem; }
+.wall__facts li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 14px; height: 2px; background: var(--grad); }
+
+/* House-lights states inside the elevations */
+.wall__view .glow { opacity: 0.34; }
+.wall__view .wash { opacity: 0; }
+.wall__view .roomlight { opacity: 0.42; }
+.wall__view .glow, .wall__view .wash, .wall__view .roomlight { transition: opacity .5s var(--ease); }
+body.lights-down .wall__view .glow { opacity: 1; }
+body.lights-down .wall__view .wash { opacity: 0.85; }
+body.lights-down .wall__view .roomlight { opacity: 0.1; }
+
+.wall-cta { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 32px; align-items: center; padding: 44px; border-radius: var(--radius); background: var(--grad-soft); border: 1px solid var(--line-2); box-shadow: var(--shadow); }
+.wall-cta__actions { display: flex; flex-direction: column; gap: 14px; }
+
+@media (max-width: 900px) {
+  .wall { grid-template-columns: 1fr; gap: 26px; margin-top: 46px; }
+  .wall--flip .wall__view { order: 0; }
+  .wall-cta { grid-template-columns: 1fr; padding: 32px; }
+}
