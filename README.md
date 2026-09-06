@@ -134,6 +134,38 @@ If the site itself looks down, the cause is almost certainly **not** DNS. Check
 **Settings → Pages** (custom domain still set to `www.fdc-foundation.org`, "Enforce HTTPS" ticked)
 and the most recent Pages deployment.
 
+### If one device shows `DNS_PROBE_FINISHED_NXDOMAIN`
+
+`NXDOMAIN` means "this domain does not exist." When the domain demonstrably *does* exist
+everywhere else, that error is a claim made by **whatever is answering DNS for that one device** —
+it is not a statement about the domain.
+
+Verified 2026-09-06: 45/45 queries across Google (`8.8.8.8`), Cloudflare (`1.1.1.1`) and Quad9
+(`9.9.9.9`) returned the correct records, with fresh full TTLs (not cached), and GoDaddy's
+authoritative servers answered correctly on direct query. The `.org` registry delegation is intact.
+The zone is unsigned (no DNSSEC), so a validation failure cannot be the cause either.
+
+Note the negative-cache window is short: the SOA `MINIMUM` is **600 seconds**, so a stale
+"does not exist" answer expires on its own within 10 minutes. Anything persisting longer than
+that is not ordinary DNS caching — it is something on the device or its network.
+
+Work through these in order on the affected device:
+
+1. **Turn off any VPN or DNS-filtering app.** Android shows a small key icon in the status bar when
+   a VPN is active. Ad-blockers and parental-control apps (AdGuard, Blokada, NextDNS, carrier
+   "family" filters) install themselves as a local VPN and answer `NXDOMAIN` for anything they
+   block or have not yet categorised — a young nonprofit domain is a common false positive.
+2. **Check Android → Settings → Network & internet → Private DNS.** Set it to *Automatic* or *Off*
+   and retry.
+3. **Try `www.fdc-foundation.org`** as well as the bare domain. `www` is the canonical hostname;
+   if `www` loads and the apex does not, the problem is narrower than a dead domain.
+4. **Switch networks** — mobile data vs. Wi-Fi. If it works on one and not the other, the fault is
+   that network's resolver, not the domain.
+5. **Confirm globally** at [dnschecker.org](https://dnschecker.org) before changing any DNS record.
+
+**Do not "fix" this by editing DNS records at GoDaddy.** The records are correct; changing them to
+chase a single device's error will break the site for everyone else.
+
 ### ⚠️ Email is the actual DNS problem
 
 `info@fdc-foundation.org` is published in **7 places** across `index.html`, `donate.html`, and
