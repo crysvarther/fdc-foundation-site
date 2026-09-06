@@ -14,3 +14,13 @@ FDC foundation v2.pdf
 
 # Local preview server + Claude tooling
 .claude/
+
+# Raw performance recordings (multi-GB, far over GitHub's 100 MB limit). Keep out of the web repo.
+assets/*.mp4
+assets/*.mov
+assets/*.wav
+assets/*.m4a
+assets/*.mp3
+
+# Historical roster database (not for the website)
+assets/*.xlsx
