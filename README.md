@@ -21,6 +21,7 @@ files directly and can be hosted anywhere (GitHub Pages, Netlify, Vercel, or any
 | `assets/styles.css` | All styling (purple/black/cyan brand system, responsive, animations) |
 | `assets/script.js` | Interactions: nav, scroll reveal, count-up stats, FAQ, donate selectors |
 | `assets/crest.svg` | Logo / favicon (FDC shield crest) |
+| `assets/logo/` | Widescreen (16:9) TV logo built from the Hall of Fame emblem: dark and light 1920x1080 stills, a 3840x2160 still, and 7-second animated MP4s at 1080p and 4K (letters converge into the lockup) |
 | `assets/img/` | Optimized performance photos (Photography by Wilson, South Titan Classic 2026) |
 
 ## Real info already baked in
