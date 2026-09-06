@@ -115,6 +115,72 @@ then add the DNS records GitHub shows you at your domain registrar. GitHub will 
 > Prefer drag-and-drop? [Netlify](https://app.netlify.com/drop) lets you drag this folder onto the page and
 > get an instant live URL — no git required. Same files work on either host.
 
+## Domain & DNS
+
+The domain `fdc-foundation.org` is registered at **GoDaddy** (nameservers `ns23/ns24.domaincontrol.com`).
+The site is served by GitHub Pages, and the `CNAME` file in this repo pins the canonical hostname to
+`www.fdc-foundation.org`.
+
+### Current state (verified 2026-09-06)
+
+**The website records are correct — the web side of DNS is healthy.**
+
+| Record | Value | Status |
+|---|---|---|
+| `fdc-foundation.org` **A** | `185.199.108.153`, `.109.153`, `.110.153`, `.111.153` | ✅ correct — all four GitHub Pages IPs |
+| `www.fdc-foundation.org` **CNAME** | `crysvarther.github.io` | ✅ correct — matches the `CNAME` file |
+
+If the site itself looks down, the cause is almost certainly **not** DNS. Check
+**Settings → Pages** (custom domain still set to `www.fdc-foundation.org`, "Enforce HTTPS" ticked)
+and the most recent Pages deployment.
+
+### ⚠️ Email is the actual DNS problem
+
+`info@fdc-foundation.org` is published in **7 places** across `index.html`, `donate.html`, and
+`hall-of-fame.html`, but the domain has **no `MX` record**, so it cannot receive mail.
+
+This fails in a particularly quiet way. With no `MX`, sending mail servers fall back to the domain's
+`A` record and try to deliver to `185.199.108.153` — a GitHub Pages web server that does not answer
+on the SMTP port. The message doesn't bounce immediately; it sits in the sender's queue and bounces
+days later, if at all. **A donor who emails the foundation gets silence, and so does the foundation.**
+
+There is also a mismatch on outbound mail: a `DMARC` record is published at `p=quarantine`
+(`v=DMARC1; p=quarantine; adkim=r; aspf=r; …` — GoDaddy's default), but there is **no `SPF` record**
+and no DKIM. Any mail sent as `@fdc-foundation.org` therefore fails both checks and is quarantined
+into recipients' spam folders by that policy.
+
+### Fixing it
+
+Email requires a mailbox provider — DNS alone cannot receive mail, the same way a street number on a
+post office box doesn't create the box. Pick a provider first (GoDaddy's own Microsoft 365 plans,
+Google Workspace, Zoho Mail, Proton, Fastmail…), then add **the `MX`, `SPF`, and `DKIM` values that
+provider gives you** in **GoDaddy → My Products → Domain → DNS**. Do not copy MX hostnames from
+anywhere else; they are specific to the provider and wrong values fail the same way as none.
+
+Order of operations:
+
+1. Choose the mailbox provider and create the `info@` mailbox.
+2. Add the provider's `MX` records at the apex (`@`).
+3. Add the provider's `SPF` `TXT` record at `@` (exactly one SPF record per domain).
+4. Add the provider's `DKIM` record.
+5. Leave the existing `DMARC` at `p=quarantine` only *after* steps 3–4 are live and verified —
+   until SPF and DKIM pass, that policy is actively junking the foundation's own mail.
+6. Send a test message both ways before relying on it.
+
+**Do not touch the `A` or `CNAME` records above while doing this.** They serve the website; changing
+them takes the site down. Mail records (`MX`, `TXT`) and web records (`A`, `CNAME`) coexist on the
+same domain independently.
+
+### Two optional hardening items
+
+- **IPv6 for the apex.** GitHub Pages now publishes IPv6 addresses, but only `A` records exist here.
+  Adding the four `AAAA` records (`2606:50c0:8000::153`, `8001::153`, `8002::153`, `8003::153`) at `@`
+  lets IPv6-only clients reach the apex directly. Dual-stack clients are unaffected today.
+- **Verify the domain with GitHub.** There is no `_github-pages-challenge-crysvarther` `TXT` record.
+  Adding the one GitHub generates in **Settings → Pages → Verify domain** prevents anyone else from
+  claiming `fdc-foundation.org` on GitHub Pages if this repo is ever renamed or deleted.
+---
+
 ## Content sources
 Program facts (the "Friend de Coup" / Jason Kaemingk tribute, 40+ year history, Mitchell Area Performing
 Arts Center, Grand Champion tradition) are drawn from public reporting by the *Mitchell Republic*. Mission,
