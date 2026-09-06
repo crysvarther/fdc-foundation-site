@@ -10,10 +10,36 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/img/hall-of-fame.jpg" />
   <link rel="icon" href="assets/crest.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/space-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts.css" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "FDC Foundation",
+    "alternateName": "Friend de Coup Foundation",
+    "description": "Fundraising program supporting Friend de Coup, the show choir of Mitchell High School in Mitchell, South Dakota.",
+    "url": "https://www.fdc-foundation.org/",
+    "logo": "https://www.fdc-foundation.org/assets/crest.svg",
+    "email": "info@fdc-foundation.org",
+    "parentOrganization": {
+      "@type": "NGO",
+      "name": "Mitchell Music Boosters",
+      "taxID": "83-2182557",
+      "nonprofitStatus": "Nonprofit501c3"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "postOfficeBoxNumber": "522",
+      "addressLocality": "Mitchell",
+      "addressRegion": "SD",
+      "postalCode": "57301",
+      "addressCountry": "US"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -22,7 +48,7 @@
     <div class="wrap nav">
       <a href="index.html" class="brand" aria-label="FDC Foundation home">
         <img src="assets/crest.svg" alt="" class="brand__crest" />
-        <span class="brand__name">FDC<span>Foundation</span></span>
+        <span class="brand__name">FDC<span>Foundation</span><small class="brand__sub">a Mitchell Music Boosters program</small></span>
       </a>
       <nav aria-label="Primary">
         <ul class="nav__links">
@@ -503,6 +529,7 @@
         <div class="footer-brand">
           <a href="index.html" class="brand"><img src="assets/crest.svg" alt="" class="brand__crest" /><span class="brand__name">FDC<span>Foundation</span></span></a>
           <p>Building confidence. Creating leaders. Leaving a legacy. Supporting the students of Mitchell's Friend de Coup show choir.</p>
+          <p class="footer-org">A fundraising program of the <strong>Mitchell Music Boosters</strong> &middot; 501(c)(3) nonprofit</p>
         </div>
         <div class="footer-col">
           <h5>Explore</h5>
@@ -520,6 +547,7 @@
             <li><a href="index.html#tiers">Giving Levels</a></li>
             <li><a href="index.html#give">Get Involved</a></li>
             <li><a href="index.html#contact">Sponsorship</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -534,8 +562,9 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-note"><strong>About the wall.</strong> The FDC Hall of Fame wall is in design. The layouts shown here are concepts for a wall in the Mitchell Area Performing Arts Center lobby — final size, materials, and the inductee roll will be confirmed with the school district and the Foundation Committee.</p>
-        <span>&copy; <span id="year">2026</span> FDC Foundation. Mitchell, South Dakota. Prepared by the FDC Foundation Committee.</span>
-        <span>Tax-deductible via Mitchell Music Boosters, a 501(c)(3) nonprofit.</span>
+        <p class="footer-note"><strong>About the FDC Foundation.</strong> The FDC Foundation is the fundraising program supporting Friend de Coup, the show choir of Mitchell High School in Mitchell, South Dakota. We operate under the <strong>Mitchell Music Boosters</strong>, a registered 501(c)(3) nonprofit organization <!-- CONFIRM EIN 83-2182557 AND LEGAL NAME WITH BOOSTERS TREASURER BEFORE DEPLOYING --> (EIN 83-2182557), PO Box 522, Mitchell, SD 57301. All gifts are made to and receipted by the Boosters and are restricted to the Friend de Coup program. Online giving is processed securely by Givebutter — this website never handles payment information.</p>
+        <span>&copy; <span id="year">2026</span> Mitchell Music Boosters &middot; FDC Foundation program &middot; Mitchell, South Dakota.</span>
+        <span>Donations are tax-deductible to the extent allowed by law.</span>
       </div>
     </div>
   </footer>
