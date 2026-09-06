@@ -7,9 +7,9 @@
   <meta name="description" content="How the FDC Foundation website handles your information. We use no cookies, no analytics, and no tracking, and the site transmits nothing to our servers." />
   <meta name="robots" content="index, follow" />
   <link rel="icon" href="assets/crest.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/space-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts.css" />
   <link rel="stylesheet" href="assets/styles.css" />
   <script type="application/ld+json">
   {
@@ -95,7 +95,8 @@
         runs no analytics, and uses no advertising or tracking of any kind. It has no database and no
         server-side code &mdash; there is nowhere for it to store anything about you. The contact form does
         not submit to us; it opens a message in your own email program, which you choose whether to send.
-        We never sell, rent, or share your information.</span>
+        Every font, style, and script is served from our own domain, so loading a page here contacts no
+        third party at all. We never sell, rent, or share your information.</span>
       </div>
     </div>
   </section>
@@ -149,8 +150,9 @@
 
         <h2>Information collected automatically</h2>
         <p>
-          We run no analytics and set no cookies. Two services do, however, see technical information
-          simply because of how the web works, and we would rather name them than pretend otherwise:
+          We run no analytics and set no cookies, and this site loads nothing from a third party
+          &mdash; fonts, styles, and scripts are all served from our own domain. One party does still see
+          technical information, simply because a website has to be hosted somewhere:
         </p>
         <ul>
           <li>
@@ -160,14 +162,12 @@
             identify visitors from them. See
             <a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's Privacy Statement</a>.
           </li>
-          <li>
-            <strong>Google Fonts</strong> supplies the two typefaces used in our design. Because your
-            browser fetches those font files directly from Google's servers, Google receives your IP
-            address and basic browser information when a page loads. We receive nothing from this and use
-            it for nothing. See
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.
-          </li>
         </ul>
+        <p>
+          That is the complete list. The typefaces used in our design are stored on and served from this
+          website rather than loaded from Google Fonts, so no request for them reaches Google or anyone
+          else. Loading a page here contacts no company other than our host.
+        </p>
 
         <h2>What this site does not do</h2>
         <ul>
@@ -175,6 +175,7 @@
           <li>No analytics &mdash; no Google Analytics, no visitor counters, no heatmaps.</li>
           <li>No advertising, no advertising networks, no retargeting, no tracking pixels.</li>
           <li>No social media trackers or embedded "like" buttons.</li>
+          <li>No third-party fonts, scripts, or stylesheets &mdash; everything is served from our own domain.</li>
           <li>No accounts, no logins, no passwords.</li>
           <li>No collection of payment card numbers, bank details, or government identifiers.</li>
           <li>No selling, renting, or trading of anyone's information, ever.</li>
@@ -240,7 +241,7 @@
           <li><strong>Ask us to correct or delete it.</strong> We will honor reasonable requests, subject to any donation records the Boosters must retain for tax and accounting purposes.</li>
           <li><strong>Ask us to stop contacting you.</strong> Say the word and we will.</li>
           <li><strong>Request removal of a photograph.</strong> See the section above.</li>
-          <li><strong>Block Google Fonts.</strong> If you would rather Google not see your IP address, a content blocker or privacy-focused browser will stop the font request. The site remains fully readable without it.</li>
+          <li><strong>Browse without being seen by third parties.</strong> Nothing further is required &mdash; this site loads no third-party resources, so no outside company learns that you visited.</li>
         </ul>
 
         <h2>Links to other sites</h2>
