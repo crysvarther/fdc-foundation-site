@@ -27,7 +27,7 @@ files directly and can be hosted anywhere (GitHub Pages, Netlify, Vercel, or any
 ## Real info already baked in
 - Mission, tagline, and the three Opportunities (Founding Donor / Sponsor a Student / Support the Program)
 - Contact: phone **605-350-5866 (Darren)** & **605-770-0844 (Chris)**, email **info@fdc-foundation.org**, **Mitchell, SD**, website **www.fdc-foundation.org**
-- Tax line: donations are tax-deductible through the partnership with the **Mitchell Music Boosters**, a registered **501(c)(3)** nonprofit
+- Tax line: the FDC Foundation is its own registered **501(c)(3)** nonprofit; donations are tax-deductible to the extent allowed by law
 - 9 real performance photos throughout
 
 ## View it locally
@@ -55,9 +55,9 @@ That's it — every "Donate" and "Continue to Secure Checkout" button now opens 
 donor's selected amount + frequency are passed along automatically (as `?amount=` and `?frequency=`)
 when the provider supports them. Until you set it, the buttons show a friendly "not connected yet" reminder.
 
-> A static site can't process payments by itself — it needs a payment provider. The easiest path for a
-> school group is a hosted page (**Givebutter** and **GoFundMe** are free to start). Because giving runs
-> through the Mitchell Music Boosters 501(c)(3), confirm the receipt/acknowledgment flow with them.
+> A static site can't process payments by itself — it needs a payment provider. The Foundation receives
+> donations through **Givebutter**, so use your Givebutter campaign/page URL here. Givebutter can send
+> tax receipts automatically once the Foundation's 501(c)(3) details are set up in the account.
 > If your provider errors on the `?amount=` parameter, set `DONATE_PASS_AMOUNT = false` right below `DONATE_URL`.
 
 ### Optional polish

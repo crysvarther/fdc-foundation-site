@@ -4,7 +4,7 @@
 
   /* ============================================================
      GO LIVE: paste your donation page URL below (in the quotes).
-     e.g. "https://givebutter.com/fdc"  or a GoFundMe / PayPal link.
+     e.g. "https://givebutter.com/fdc" (your Givebutter campaign link).
      Leave it "" to keep the "not connected yet" reminder.
      The chosen amount & frequency are appended automatically when
      your provider supports ?amount= and ?frequency= parameters.
