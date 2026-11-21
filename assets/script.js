@@ -12,6 +12,24 @@
   const DONATE_URL = "";
   const DONATE_PASS_AMOUNT = true; // set false if your provider ignores/errors on ?amount=
 
+
+  /* ---- Season counter (Hall of Fame) ----
+     FDC had completed 43 seasons as of Nov 1, 2026. A new season is added every
+     Nov 1, computed from the visitor's date, so there is nothing to update by hand.
+     The static text in hall-of-fame.html (title/meta/fallback) should be bumped
+     occasionally, but the visible numbers are always correct once this runs. */
+  const SEASONS_BASE = 43, SEASONS_BASE_YEAR = 2026; // 43 seasons as of Nov 1, 2026
+  const seasonCount = (d) => {
+    const y = d.getFullYear();
+    const n = SEASONS_BASE + (y - SEASONS_BASE_YEAR) - (d.getMonth() < 10 ? 1 : 0); // month 10 = November
+    return Math.max(SEASONS_BASE, n);
+  };
+  const seasons = seasonCount(new Date());
+  document.querySelectorAll("[data-seasons]").forEach((el) => { el.textContent = seasons; });
+  document.querySelectorAll('meta[name="description"][content*="seasons"], meta[property="og:description"][content*="seasons"]').forEach((m) => {
+    m.content = m.content.replace(/Forty-three seasons/, seasons + " seasons").replace(/for 43 seasons/, "for " + seasons + " seasons");
+  });
+
   /* ---- Sticky header shade ---- */
   const header = document.querySelector(".site-header");
   const onScroll = () => {
